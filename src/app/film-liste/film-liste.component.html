@@ -1,3 +1,10 @@
 <h2>Filmliste</h2>
 
-<div class="child_component" *ngFor="let film of filmlist"><app-single-film ></app-single-film></div>
+<div class="single_film_wrapper" *ngFor="let film of filmlist">
+    <div class="child_component">
+        <app-single-film [filmName]="film" [singleFilmName]="film"></app-single-film>
+    </div>
+    <div>
+        HELLÖ
+    </div>
+</div>

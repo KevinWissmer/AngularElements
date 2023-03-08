@@ -1,8 +1,15 @@
 .child_component{
     border: 3px solid rgb(1, 152, 3);
+    padding: 16px;
+    
 }
 
 .child_component::before{
     color: rgb(1, 152, 3);
     content: "child_component";
+}
+
+.single_film_wrapper{
+    display: flex;
+    padding: 16px;
 }
