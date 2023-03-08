@@ -1,0 +1,8 @@
+.parent_component{
+    border: 3px solid rgb(152, 1, 1);
+}
+
+.parent_component::before{
+    color: rgb(152, 1, 1);
+    content: "parent_component_1";
+}
