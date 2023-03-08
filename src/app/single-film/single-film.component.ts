@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-single-film',
@@ -8,6 +8,10 @@ import { Component, Input } from '@angular/core';
 export class SingleFilmComponent {
   @Input() filmName: string = '';
   @Input('singleFilmName') filmNameSecondApproach: string = '';
+
+  @Output() viewStatus = new EventEmitter<string>();
+  @Output('statuschange') viewStatusSecodnApproach = new EventEmitter<string>();
+
   notstatus: string = 'viewed';
   status: string = 'not viewed';
 
@@ -16,6 +20,7 @@ export class SingleFilmComponent {
     let tmp = this.status;
     this.status = this.notstatus;
     this.notstatus = tmp;
+    this.viewStatusSecodnApproach.emit(this.status);
   }
 
 

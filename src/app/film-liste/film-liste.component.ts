@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class FilmListeComponent {
   filmlist: string[] = ["Avatar","LOTR","Superman"]; 
+  stati: string[] = ["not viewed","not viewed","not viewed"];
+
+  changeStatus(index:number, status:string){
+    this.stati[index] = status;
+    
+  }
 }
