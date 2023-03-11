@@ -1,15 +1,17 @@
-import { Directive, ElementRef, OnInit, Renderer2, HostListener } from '@angular/core';
+import { Directive, ElementRef, HostBinding, HostListener } from '@angular/core';
 
 @Directive({
     selector: '[appHoverGreenbgDirective]'
 })
 export class HoverGreenbgDirectiveDirective {
+    @HostBinding('style.backgroundColor') backgroundColor: string = 'transparent';
+
     @HostListener('mouseenter') mouseover(eventData:Event){
-        this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', '#18361d')
+        this.backgroundColor = '#18361d';
     }
     @HostListener('mouseleave') mouseleave(eventData:Event){
-        this.renderer.setStyle(this.elementRef.nativeElement, 'background-color', 'transparent')
+        this.backgroundColor = 'transparent';
     }
-    constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
+    constructor(private elementRef: ElementRef) { }
 
 }
