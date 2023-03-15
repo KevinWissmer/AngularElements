@@ -9,3 +9,25 @@
 <p appHoverGreenbgDirective [defaultColor]="'white'">
     hovered green background
 </p>
+
+<button (click)="ngIfVisibility = !ngIfVisibility;">change visibility</button>
+
+<p *ngIf="ngIfVisibility">mit stern</p>
+<ng-template [ngIf]="!ngIfVisibility">
+    <p>ohne stern</p>
+</ng-template>
+<p [ngClass]="ngIfVisibility ? 'red_bg' : 'green_bg'">ngClass option 1</p>
+<p [ngClass]="{'green_bg': ngIfVisibility}">ngClass option 2</p>
+<p [ngStyle]="{backgroundColor: ngIfVisibility ? 'red' : 'green'}">ngStyle</p>
+<h3>switch directive</h3>
+<p>type 1,2 or 3 into  the input below</p>
+<input (change)="changeSwitch()" [(ngModel)]="switchInputValue"  type="number" min="1" max="3">
+
+<div [ngSwitch]="switchValue">
+    <p *ngSwitchCase="'version_1'">version_1</p>
+    <p *ngSwitchCase="'version_2'">version_2</p>
+    <ng-container *ngSwitchCase="'version_3'">
+        <h4>ng-container version</h4>
+        <p>with more elements</p>
+    </ng-container>
+</div>

@@ -6,5 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent {
+  ngIfVisibility:boolean = false;
+  switchValue:string = 'version_1';
+  switchInputValue: number = 1;
 
+  changeSwitch(){
+    this.switchValue = `version_${this.switchInputValue}`
+  }
 }
